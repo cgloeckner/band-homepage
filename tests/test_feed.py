@@ -6,7 +6,7 @@ import controller
 class TestFeedModule(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.server = controller.BaseWebServer()
+        self.server = controller.Server()
         self.feed = controller.Feed(self.server)
 
     def test_data_validation(self):

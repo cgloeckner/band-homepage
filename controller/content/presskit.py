@@ -1,13 +1,13 @@
 import zipfile
 
-from .modules import BaseWebServer
+from controller.base.module import Server
 
 
 class Presskit:
-    def __init__(self, api: BaseWebServer) -> None:
-        self.server = api
-        self.root = api.local_root / 'model' / 'presskit'
-        self.zip_file = api.get_static_path() / 'presskit.zip'
+    def __init__(self, server: Server) -> None:
+        self.server = server
+        self.root = server.local_root / 'model' / 'presskit'
+        self.zip_file = server.get_static_path() / 'presskit.zip'
 
     def build(self) -> None:
         """Zips all files and folders."""

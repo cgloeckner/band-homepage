@@ -7,7 +7,7 @@ import controller
 class TestGigsModule(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.server = controller.BaseWebServer()
+        self.server = controller.Server()
         self.gigs = controller.Gigs(self.server)
 
     def test_process_gigs(self):

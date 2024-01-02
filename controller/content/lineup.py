@@ -2,12 +2,12 @@ import tomli
 import bottle
 import logging
 
-from .modules import BaseModule, BaseWebServer
+from controller.base.module import Module, Server
 
 
-class Lineup(BaseModule):
-    def __init__(self, api: BaseWebServer) -> None:
-        super().__init__(api)
+class Lineup(Module):
+    def __init__(self, server: Server) -> None:
+        super().__init__(server)
 
         self.base_title = 'Lineup & Biografie'
 
@@ -21,5 +21,4 @@ class Lineup(BaseModule):
             self.data = tomli.load(file)
 
     def render(self) -> None:
-        self.template = bottle.template('lineup/index', module=self, data=self.data,
-                                        get_static_url=self.server.get_static_url)
+        self.template = bottle.template('lineup/index', module=self)

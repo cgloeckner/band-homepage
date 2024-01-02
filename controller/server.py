@@ -1,22 +1,19 @@
 from gevent import monkey; monkey.patch_all()
 
 import requests
+import pathlib
 import bottle
 
 from typing import Dict
 
-from .modules import BaseWebServer
+from controller.base.module import Server
 
 
-class WebServer(BaseWebServer):
+class WebServer(Server):
 
-    def __init__(self, args: Dict) -> None:
-        super().__init__()
+    def __init__(self, local_root: pathlib.Path, args: Dict) -> None:
+        super().__init__(args['domain'], args['debug'], args['reverse_proxy'], local_root=local_root)
         self.args = args
-
-        self.debug = args['debug']
-        self.reverse_proxy = args['reverse_proxy']
-        self.domain = args['domain']
 
         self.app = bottle.default_app()
         self.app.catchall = self.debug

@@ -1,12 +1,7 @@
 from .main import main
-from .modules import BaseWebServer
+from controller.base.module import Server
 
-from .feed import Feed
-from .releases import Releases
-from .lineup import Lineup
-from .gigs import Gigs
-from .gallery import Gallery
-from .merch import Merch, MerchCategory
-from .presskit import Presskit
+from controller.content.feed import Feed
+from controller.content.presskit import Presskit
 
-from .seo import Sitemap
+from controller.seo import Sitemap, RobotsTxt

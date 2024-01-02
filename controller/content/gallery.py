@@ -2,12 +2,12 @@ import bottle
 
 from typing import List
 
-from .modules import BaseModule, BaseWebServer
+from controller.base.module import Module, Server
 
 
-class Gallery(BaseModule):
-    def __init__(self, api: BaseWebServer) -> None:
-        super().__init__(api)
+class Gallery(Module):
+    def __init__(self, server: Server) -> None:
+        super().__init__(server)
 
         self.data = list()
 
@@ -34,5 +34,4 @@ class Gallery(BaseModule):
         self.data = [file.name for pattern in patterns for file in pattern]
 
     def render(self) -> None:
-        self.template = bottle.template('gallery/index', module=self, data=self.data,
-                                        get_static_url=self.server.get_static_url)
+        self.template = bottle.template('gallery/index', module=self)

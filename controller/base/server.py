@@ -1,31 +1,31 @@
 import pathlib
 
-from abc import abstractmethod, ABC
+from abc import ABC
 from typing import Dict
 
 
-def get_email_address(recipient: str, domain: str) -> str:
+def concat_email(recipient: str, domain: str) -> str:
     return f'{recipient}@{domain}'
 
 
-class BaseWebServer(ABC):
-    def __init__(self):
-        self.domain = 'localhost'
-        self.debug = True
-        self.reverse_proxy = False
-        self.local_root = pathlib.Path('./')
+class Server(ABC):
+    def __init__(self, domain: str, debug: bool, reverse_proxy: bool, local_root: pathlib.Path):
+        self.domain = domain
+        self.debug = debug
+        self.reverse_proxy = reverse_proxy
+        self.local_root = local_root
 
     def get_contact_email(self) -> str:
-        return get_email_address('kontakt', self.domain)
+        return concat_email('kontakt', self.domain)
 
     def get_merch_email(self) -> str:
-        return get_email_address('merch', self.domain)
+        return concat_email('merch', self.domain)
 
     def get_booking_email(self) -> str:
-        return get_email_address('booking', self.domain)
+        return concat_email('booking', self.domain)
 
     def get_webmaster_email(self) -> str:
-        return get_email_address('webmaster', self.domain)
+        return concat_email('webmaster', self.domain)
 
     def get_all_emails(self) -> Dict[str, str]:
         return {
@@ -61,24 +61,3 @@ class BaseWebServer(ABC):
         if route != '':
             base += '/' + route
         return base
-
-
-class BaseModule(ABC):
-    def __init__(self, server: BaseWebServer) -> None:
-        self.server = server
-        self.template = None
-
-        self.data = {}
-
-        self.band_name: str = 'ERR: No band name was set'
-        self.genre: str = 'ERR: No genre was set'
-        self.domain: str = 'ERR: No domain was set'
-        self.description: str = 'ERR: No description was set'
-        self.keywords: list[str] = ['Err: No keywords were set']
-
-    @property
-    def title(self) -> str:
-        return f'{self.band_name.upper()} - {self.genre}'
-
-    @abstractmethod
-    def render(self) -> None: ...

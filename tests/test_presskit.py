@@ -6,7 +6,7 @@ import controller
 class TestPresskitModule(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.server = controller.BaseWebServer()
+        self.server = controller.Server()
         self.presskit = controller.Presskit(self.server)
 
     def test_data_validation(self):

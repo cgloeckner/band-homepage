@@ -1,6 +1,6 @@
 %include('header', module_name='merch')
 
-<img class="title" alt="{{module.band_name}} Foto" src="{{get_static_url('/content/titles/merch.jpg')}}">
+<img class="title" alt="{{module.band_name}} Foto" src="{{module.server.get_static_url('/content/titles/merch.jpg')}}">
 
 <div class="merch">
 
@@ -16,11 +16,12 @@
     <br>
     <br>
     <b>Anfragen / Bestellungen an:</b><br>
+%merch_email = module.server.get_merch_email()
     <a href="mailto:{{merch_email}}">{{merch_email}}</a>
 </p>
 
-%for category in data:
-    %include('merch/category', category=category, data=data[category])
+%for category, value in module.data:
+    %include('merch/category', category=category, data=value)
 %end
 
 </div>

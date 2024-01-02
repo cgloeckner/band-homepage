@@ -6,7 +6,7 @@ import controller
 class TestReleasesModule(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.server = controller.BaseWebServer()
+        self.server = controller.Server()
         self.merch = controller.Merch(self.server)
 
         for category_str in controller.MerchCategory:

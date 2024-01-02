@@ -2,12 +2,12 @@ import tomli
 import bottle
 import logging
 
-from .modules import BaseModule, BaseWebServer
+from controller.base.module import Module, Server
 
 
-class Feed(BaseModule):
-    def __init__(self, api: BaseWebServer) -> None:
-        super().__init__(api)
+class Feed(Module):
+    def __init__(self, server: Server) -> None:
+        super().__init__(server)
 
     def load_from_file(self) -> None:
         filename = self.server.local_root / 'model' / 'data' / 'feed.toml'
@@ -19,5 +19,4 @@ class Feed(BaseModule):
             self.data = tomli.load(file)
 
     def render(self) -> None:
-        self.template = bottle.template('feed/index', module=self, data=self.data,
-                                        get_static_url=self.server.get_static_url)
+        self.template = bottle.template('feed/index', module=self)

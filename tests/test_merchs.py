@@ -6,7 +6,7 @@ import controller
 class TestMerchModule(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.server = controller.BaseWebServer()
+        self.server = controller.Server()
         self.merch = controller.Merch(self.server)
 
     def test_MerchCategory_caption(self):

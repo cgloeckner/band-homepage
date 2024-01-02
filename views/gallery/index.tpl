@@ -1,13 +1,13 @@
 %include('header', module_name='gallery')
 
-<img class="title" alt="{{module.band_name}} Foto" src="{{get_static_url('/content/titles/gallery.jpg')}}">
+<img class="title" alt="{{module.band_name}} Foto" src="{{module.server.get_static_url('/content/titles/gallery.jpg')}}">
 
 <div class="gallery">
 
 <h1 class="shifted">{{module.base_title}}</h1>
 
     <div class="container">
-%for file in data:
+%for file in module.data:
     %include('gallery/thumbnail', file=file)
 %end
     </div>

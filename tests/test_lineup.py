@@ -6,7 +6,7 @@ import controller
 class TestLineupModule(unittest.TestCase):
 
     def setUp(self) -> None:
-        self.server = controller.BaseWebServer()
+        self.server = controller.Server()
         self.lineup = controller.Lineup(self.server)
 
     def test_data_validation(self):

@@ -4,12 +4,12 @@ import logging
 
 from typing import Dict, List
 
-from .modules import BaseModule, BaseWebServer
+from controller.base.module import Module, Server
 
 
-class Gigs(BaseModule):
-    def __init__(self, api: BaseWebServer) -> None:
-        super().__init__(api)
+class Gigs(Module):
+    def __init__(self, server: Server) -> None:
+        super().__init__(server)
 
         self.data = dict()
 
@@ -44,6 +44,4 @@ class Gigs(BaseModule):
         self.data = self.process_gigs(gigs)
 
     def render(self) -> None:
-        self.template = bottle.template('gigs/index', module=self, data=self.data,
-                                        booking_email=self.server.get_booking_email(),
-                                        get_static_url=self.server.get_static_url)
+        self.template = bottle.template('gigs/index', module=self)

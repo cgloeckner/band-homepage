@@ -1,6 +1,6 @@
 %include('header', module_name='lineup')
 
-<img class="title" alt="{{module.band_name}} Foto" src="{{get_static_url('/content/titles/lineup.jpg')}}">
+<img class="title" alt="{{module.band_name}} Foto" src="{{module.server.get_static_url('/content/titles/lineup.jpg')}}">
 
 <div class="lineup">
 
@@ -9,8 +9,8 @@
 <h2 class="center">Aktuelle Besetzung</h2>
 
 <div class="overview">
-%for key in data:
-    %include('lineup/member', key=key, data=data[key])
+%for key, value in module.data:
+    %include('lineup/member', key=key, data=value)
 %end
 </div>
 

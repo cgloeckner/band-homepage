@@ -7,7 +7,7 @@ from typing import Dict, List
 from enum import auto
 from strenum import LowercaseStrEnum
 
-from .modules import BaseModule, BaseWebServer
+from controller.base.module import Module, Server
 
 
 class MerchCategory(LowercaseStrEnum):
@@ -26,9 +26,9 @@ class MerchCategory(LowercaseStrEnum):
         raise NotImplemented
 
 
-class Merch(BaseModule):
-    def __init__(self, api: BaseWebServer) -> None:
-        super().__init__(api)
+class Merch(Module):
+    def __init__(self, server: Server) -> None:
+        super().__init__(server)
         self.data = dict()
         self.base_title = 'Merchandise'
 
@@ -59,6 +59,4 @@ class Merch(BaseModule):
             self.data[category].sort(key=lambda cd: cd['year'], reverse=True)
 
     def render(self) -> None:
-        self.template = bottle.template('merch/index', module=self, data=self.data,
-                                        merch_email=self.server.get_merch_email(),
-                                        get_static_url=self.server.get_static_url)
+        self.template = bottle.template('merch/index', module=self)

@@ -11,8 +11,9 @@ from controller.base.module import Server
 
 class WebServer(Server):
 
-    def __init__(self, local_root: pathlib.Path, args: Dict) -> None:
-        super().__init__(args['domain'], args['debug'], args['reverse_proxy'], local_root=local_root)
+    def __init__(self, local_root: pathlib.Path, model_root: pathlib.Path, args: Dict) -> None:
+        super().__init__(args['domain'], args['debug'], args['reverse_proxy'], local_root=local_root,
+                         model_root=model_root)
         self.args = args
 
         self.app = bottle.default_app()

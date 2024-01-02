@@ -6,8 +6,8 @@ from controller.base.module import Module, Server
 
 
 class Gallery(Module):
-    def __init__(self, server: Server) -> None:
-        super().__init__(server)
+    def __init__(self, server: Server, cfg: dict) -> None:
+        super().__init__(server, cfg)
 
         self.data = list()
 
@@ -28,7 +28,7 @@ class Gallery(Module):
 
     def load_from_disc(self) -> None:
         extensions = Gallery.get_extension_wildcards()
-        root = self.server.get_static_path() / 'content' / 'gallery'
+        root = self.server.get_static_path(True) / 'gallery'
 
         patterns = [root.glob(ext) for ext in extensions]
         self.data = [file.name for pattern in patterns for file in pattern]

@@ -3,48 +3,48 @@ import pathlib
 import bottle
 
 from . import base, server, seo
-from .content import feed, contact, presskit, imprint, releases, lineup, gigs, gallery, merch
+from .content import feed, contact, presskit, imprint, releases, lineup, shows, gallery, merch
 
 
 class Homepage:
-    def __init__(self, server_impl: base.Server) -> None:
+    def __init__(self, cfg: dict, server_impl: base.Server) -> None:
         # load feed
-        self.feed = feed.Feed(server=server_impl)
+        self.feed = feed.Feed(server=server_impl, cfg=cfg)
         self.feed.load_from_file()
         self.feed.render()
 
         # load lineup
-        self.lineup = lineup.Lineup(server=server_impl)
+        self.lineup = lineup.Lineup(server=server_impl, cfg=cfg)
         self.lineup.load_from_file()
         self.lineup.render()
 
         # load live shows
-        self.gigs = gigs.Gigs(server=server_impl)
-        self.gigs.load_from_file()
-        self.gigs.render()
+        self.shows = shows.Shows(server=server_impl, cfg=cfg)
+        self.shows.load_from_file()
+        self.shows.render()
 
         # load gallery
-        self.gallery = gallery.Gallery(server=server_impl)
+        self.gallery = gallery.Gallery(server=server_impl, cfg=cfg)
         self.gallery.load_from_disc()
         self.gallery.render()
 
         # load merchandise
-        self.merch = merch.Merch(server=server_impl)
+        self.merch = merch.Merch(server=server_impl, cfg=cfg)
         for category_str in merch.MerchCategory:
             self.merch.load_from_file(merch.MerchCategory(category_str))
         self.merch.render()
 
         # load releases
-        self.releases = releases.Releases(server=server_impl)
+        self.releases = releases.Releases(server=server_impl, cfg=cfg)
         self.releases.load_from_merch(self.merch)
         self.releases.render()
 
         # load imprint
-        self.imprint = imprint.Imprint(server=server_impl)
+        self.imprint = imprint.Imprint(server=server_impl, cfg=cfg)
         self.imprint.render()
 
         # load contact
-        self.contact = contact.Contact(server=server_impl)
+        self.contact = contact.Contact(server=server_impl, cfg=cfg)
         self.contact.render()
 
         # build presskit (as static file)
@@ -72,12 +72,12 @@ class Homepage:
             file.write(html)
 
 
-def main(server_kwargs, render_only: bool):
+def main(data_root: pathlib.Path, cfg: dict, server_kwargs, render_only: bool):
     # setup webserver
-    server_impl = server.WebServer(pathlib.Path('./'), server_kwargs)
+    server_impl = server.WebServer(pathlib.Path('.'), data_root, server_kwargs)
 
     # load homepage
-    homepage = Homepage(server_impl)
+    homepage = Homepage(cfg, server_impl)
 
     # export html
     root = server_impl.get_build_path()
@@ -85,7 +85,7 @@ def main(server_kwargs, render_only: bool):
 
     homepage.export_html(homepage.feed.template, root / 'index.html')
     homepage.export_html(homepage.lineup.template, root / 'lineup.html')
-    homepage.export_html(homepage.gigs.template, root / 'shows.html')
+    homepage.export_html(homepage.shows.template, root / 'shows.html')
     homepage.export_html(homepage.gallery.template, root / 'gallery.html')
     homepage.export_html(homepage.merch.template, root / 'merch.html')
     homepage.export_html(homepage.releases.template, root / 'releases.html')
@@ -104,9 +104,14 @@ def main(server_kwargs, render_only: bool):
         return
 
     if not server_kwargs['reverse_proxy']:
-        @server_impl.app.get('/static/<path:path>')
-        def static_files(path: str):
+        @server_impl.app.get('/static/<filename>')
+        def static_files(filename: str):
             static_root = server_impl.get_static_path()
+            return bottle.static_file(filename, root=static_root)
+
+        @server_impl.app.get('/static/content/<path:path>')
+        def static_content(path: str):
+            static_root = server_impl.get_static_path(True)
             return bottle.static_file(path, root=static_root)
 
     @server_impl.app.get('/')
@@ -122,8 +127,8 @@ def main(server_kwargs, render_only: bool):
         return homepage.lineup.template
 
     @server_impl.app.get('/shows')
-    def gigs_page():
-        return homepage.gigs.template
+    def shows_page():
+        return homepage.shows.template
 
     @server_impl.app.get('/gallery')
     def gallery_page():
@@ -135,11 +140,11 @@ def main(server_kwargs, render_only: bool):
 
     @server_impl.app.get('/imprint')
     def impressum_page():
-        return imprint
+        return homepage.imprint.template
 
     @server_impl.app.get('/contact')
     def contact_page():
-        return contact
+        return homepage.contact.template
 
     @server_impl.app.get('/presskit')
     def static_presskit():

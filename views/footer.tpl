@@ -1,8 +1,9 @@
+%import datetime
 
     </div>
 
     <p class="footer center">
-        &copy; 2023 {{module.band_name.upper()}} |
+        &copy; {{datetime.datetime.now().year}} {{module.band_name.upper()}} |
             <a href="/contact">Kontakt</a> |
             <a href="/presskit">Press Kit</a> |
             <a href="/imprint">Impressum</a>

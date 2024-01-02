@@ -10,8 +10,8 @@
 
     <div class="elements">
 
-%for key, valje in module.data:
-    %if data[key]['type'] == 'youtube':
+%for key, value in module.data.items():
+    %if module.data[key]['type'] == 'youtube':
         %include('feed/youtube', data=value)
     %end
 %end

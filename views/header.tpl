@@ -1,5 +1,5 @@
 %import datetime
-<!-- Copyright ({{datetime.datetime.now().year}}) 2023 {{module.band_name}} //-->
+<!-- Copyright (C) {{datetime.datetime.now().year}} {{module.band_name}} //-->
 
 <!DOCTYPE html>
 <html lang="de" style="background-image: url('{{module.server.get_static_url('/content/background.jpg')}}');">

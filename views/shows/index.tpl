@@ -1,8 +1,8 @@
-%include('header', module_name='gigs')
+%include('header', module_name='shows')
 
-<img class="title" alt="{{module.band_name}} Foto" src="{{module.server.get_static_url('/content/titles/gigs.jpg')}}">
+<img class="title" alt="{{module.band_name}} Foto" src="{{module.server.get_static_url('/content/titles/shows.jpg')}}">
 
-<div class="gigs">
+<div class="shows">
 
 <h1 class="shifted">{{module.base_title}}</h1>
 
@@ -17,11 +17,11 @@
 %years_desc = sorted(module.data.keys(), key=lambda v: -v)
 %for index, year in enumerate(years_desc):
     <div class="list toggle">
-        <span onClick="toggleCollapse('gigs_{{year}}');">
-            <h2><span id="gigs_{{year}}_button">&#9662;</span> {{year}}</h2>
+        <span onClick="toggleCollapse('shows_{{year}}');">
+            <h2><span id="shows_{{year}}_button">&#9662;</span> {{year}}</h2>
         </span>
-        <div id="gigs_{{year}}_container">
-        %include('gigs/list', data=module.data[year])
+        <div id="shows_{{year}}_container">
+        %include('shows/list', data=module.data[year])
         </div>
     </div>
 %end

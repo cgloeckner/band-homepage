@@ -9,16 +9,14 @@
 <h2 class="center">Aktuelle Besetzung</h2>
 
 <div class="overview">
-%for key, value in module.data:
+%for key, value in module.data.items():
     %include('lineup/member', key=key, data=value)
 %end
 </div>
 
 <h2 class="center">Biografie</h2>
 
-<h3>Gründung</h3>
-<p>...
-</p>
+{{!module.biography}}
 
 </div>
 

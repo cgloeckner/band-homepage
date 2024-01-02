@@ -6,13 +6,14 @@ from controller.base.module import Module, Server
 
 
 class Lineup(Module):
-    def __init__(self, server: Server) -> None:
-        super().__init__(server)
+    def __init__(self, server: Server, cfg: dict) -> None:
+        super().__init__(server, cfg)
 
+        self.biography = cfg['biography']
         self.base_title = 'Lineup & Biografie'
 
     def load_from_file(self) -> None:
-        filename = self.server.local_root / 'model' / 'data' / 'lineup.toml'
+        filename = self.server.get_model_file('lineup')
         if not filename.exists():
             logging.warning(f'File not found: {filename}')
             return

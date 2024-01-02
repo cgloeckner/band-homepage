@@ -4,11 +4,11 @@ from controller.base.module import Module, Server
 
 
 class Imprint(Module):
-    def __init__(self, server: Server) -> None:
-        super().__init__(server)
+    def __init__(self, server: Server, cfg: dict) -> None:
+        super().__init__(server, cfg)
 
-        self.represented_by: str = 'ERR: No representative was set'
-        self.phone: str = 'ERR: No phone number was set'
+        self.represented_by = cfg['imprint']['represented_by']
+        self.phone = cfg['imprint']['phone']
 
     def render(self) -> None:
-        self.template = bottle.template('impressum', module=self)
+        self.template = bottle.template('imprint/index', module=self)

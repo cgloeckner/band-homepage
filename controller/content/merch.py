@@ -27,8 +27,8 @@ class MerchCategory(LowercaseStrEnum):
 
 
 class Merch(Module):
-    def __init__(self, server: Server) -> None:
-        super().__init__(server)
+    def __init__(self, server: Server, cfg: dict) -> None:
+        super().__init__(server, cfg)
         self.data = dict()
         self.base_title = 'Merchandise'
 
@@ -44,7 +44,7 @@ class Merch(Module):
             return []
 
     def load_from_file(self, category: MerchCategory) -> None:
-        filename = self.server.local_root / 'model' / 'data' / f'{category.value}.toml'
+        filename = self.server.get_model_file(str(category.value))
         if not filename.exists():
             logging.warning(f'File not found: {filename}')
             return

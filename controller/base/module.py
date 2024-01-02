@@ -4,16 +4,17 @@ from .server import Server
 
 
 class Module(ABC):
-    def __init__(self, server: Server) -> None:
+    def __init__(self, server: Server, cfg: dict) -> None:
         self.server = server
         self.template = None
         self.data = {}
 
-        self.band_name: str = 'ERR: No band name was set'
-        self.genre: str = 'ERR: No genre was set'
-        self.domain: str = 'ERR: No domain was set'
-        self.description: str = 'ERR: No description was set'
-        self.keywords: list[str] = ['Err: No keywords were set']
+        self.band_name: str = cfg['band_name']
+        self.genre: str = cfg['genre']
+        self.domain: str = cfg['domain']
+        self.description: str = cfg['description']
+        self.keywords: list[str] = cfg['keywords']
+        self.navigation: list[str] = cfg['navigation']
 
     @property
     def title(self) -> str:

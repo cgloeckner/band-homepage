@@ -20,7 +20,7 @@
     <a href="mailto:{{merch_email}}">{{merch_email}}</a>
 </p>
 
-%for category, value in module.data:
+%for category, value in module.data.items():
     %include('merch/category', category=category, data=value)
 %end
 

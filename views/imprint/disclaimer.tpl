@@ -1,27 +1,3 @@
-%include('header', module_name='impressum')
-
-<div class="impressum">
-
-<br>
-<br>
-<br>
-<br>
-
-<h1>Impressum</h1>
-
-Angaben gemäß § 5 TMG
-
-<h2 class="center">{{module.band_name}}</h2>
-
-<p class="center card">
-    <b>Vertreten durch: </b><br>
-    {{'<br />'.join(module.represented_by)}}<br />
-    <br>
-    <b>Kontakt:</b><br>
-    Telefon: {{module.phone}}<br>
-%contact_email = module.server.get_contact_email()
-    E-Mail: <a href="mailto:{{contact_email}}">{{contact_email}}</a><br>
-</p>
 
 <hr>
 
@@ -65,7 +41,3 @@ entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir dera
 <p>
 Dieses Impressum wurde auf Basis von <a href="https://www.impressum-generator.de">impressum-generator.de</a> erstellt.
 </p>
-
-</div>
-
-%include('footer')

@@ -6,8 +6,8 @@ from controller.base.module import Server
 class Presskit:
     def __init__(self, server: Server) -> None:
         self.server = server
-        self.root = server.local_root / 'model' / 'presskit'
-        self.zip_file = server.get_static_path() / 'presskit.zip'
+        self.root = server.model_root / 'presskit'
+        self.zip_file = server.model_root / 'presskit.zip'
 
     def build(self) -> None:
         """Zips all files and folders."""

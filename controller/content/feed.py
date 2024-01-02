@@ -6,11 +6,11 @@ from controller.base.module import Module, Server
 
 
 class Feed(Module):
-    def __init__(self, server: Server) -> None:
-        super().__init__(server)
+    def __init__(self, server: Server, cfg: dict) -> None:
+        super().__init__(server, cfg)
 
     def load_from_file(self) -> None:
-        filename = self.server.local_root / 'model' / 'data' / 'feed.toml'
+        filename = self.server.get_model_file('feed')
         if not filename.exists():
             logging.warning(f'File not found: {filename}')
             return

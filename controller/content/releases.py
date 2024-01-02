@@ -5,8 +5,8 @@ from .merch import Merch
 
 
 class Releases(Module):
-    def __init__(self, server: Server) -> None:
-        super().__init__(server)
+    def __init__(self, server: Server, cfg: dict) -> None:
+        super().__init__(server, cfg)
         self.data = dict()
         self.base_title = 'Releases'
 

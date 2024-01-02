@@ -11,7 +11,7 @@
 
 <div class="emails">
 
-%for category in module.contacts:
+%for category in module.contact:
     <h2>{{category['title']}}</h2>
     <p class="center card">
         <b>{{category['name']}}</b><br>

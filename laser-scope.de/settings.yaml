@@ -1,0 +1,39 @@
+band_name: Laser Scope
+genre: Heavy Metal
+domain: laser-scope.de
+location: 07552 Gera
+keywords:
+  - Laser Scope
+  - Laserscope
+  - Laser-Scope
+  - Heavy Metal
+  - Band
+  - Gera
+
+description:
+  feed: Die offizielle Homepage der Geraer Heavy Metal Band LASER SCOPE mit Infos zu Merchandise, Live Shows und vielem mehr.
+  releases: Derzeit gibt es von LASER SCOPE noch keine Veröffentlichungen.
+  lineup: Die Geraer Heavy Metal Band LASER SCOPE besteht aus Moritz (Gitarre), Jens (Gitarre), Max (Gesang), Thomas (Schlagzeug) und Christian (Bass).
+  shows: Derzeit gibt es von LASER SCOPE noch keine Auftritte. Anfragen an booking@laser-scope.de
+  gallery: Derzeit gibt es von LASER SCOPE noch keine Live-Bilder.
+  merch: Derzeit gibt es von LASER SCOPE noch kein Merchandise. Anfragen an merch@laser-scope.de
+
+contact:
+  - title: Allgemeiner Kontakt
+    name: Thomas Meier
+    email: contact@laser-scope.de
+  - title: Homepage
+    name: Christian Glöckner
+    email: webmaster@laser-scope.de
+
+imprint:
+  represented_by:
+    - tba
+  phone: tba
+
+navigation:
+  #- releases
+  - lineup
+  #- shows
+  #- gallery
+  #- merch

@@ -14,8 +14,6 @@
 %end
 </div>
 
-<h2 class="center">Biografie</h2>
-
 {{!module.biography}}
 
 </div>

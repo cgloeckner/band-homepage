@@ -28,7 +28,7 @@ def export_html(server: app.Server, homepage: app.Homepage) -> None:
 
 
 def run(server: app.Server, homepage: app.Homepage) -> None:
-    if not server.debug:
+    if server.debug:
         @server.app.get('/static/<filename>')
         def static_files(filename: str):
             static_root = server.path.get_static_path()

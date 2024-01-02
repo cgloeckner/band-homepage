@@ -18,10 +18,10 @@ class PathApi:
         return self.content_root / 'data' / f'{filename}.toml'
 
     def get_static_url(self, relative_url: str) -> str:
-        if self.debug:
-            return f'/static{relative_url}'
-
-        return f'https://static.{self.domain}{relative_url}'
+        # FIXME: not needed
+        # if not self.debug:
+        # return f'https://static.{self.domain}{relative_url}'
+        return f'/static{relative_url}'
 
     def get_static_path(self, use_content: bool = False) -> pathlib.Path:
         """Returns local path to static files (css sheets etc.)"""

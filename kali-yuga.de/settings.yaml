@@ -1,0 +1,42 @@
+band_name: Kali Yuga
+genre: Death Metal
+domain: kali-yuga.de
+description: Die offizielle Homepage der Geraer Death Metal Band KALI YUGA mit Infos zu Merchandise, Live Shows und vielem mehr.
+location: 07549 Gera
+keywords:
+  - Kali Yuga
+  - Kaliyuga
+  - Kali-Yuga
+  - Death Metal
+  - Melodic Death Metal
+  - Band
+  - Gera
+
+contact:
+  - title: Management & Booking
+    name: Eik Halle, Michael Albert
+    email: booking@kali-yuga.de
+  - title: Merchandise
+    name: Jean-Peer Krutz
+    email: merch@kali-yuga.de
+  - title: Allgemeiner Kontakt
+    name: Jan Koch
+    email: kontakt@kali-yuga.de
+  - title: Homepage
+    name: Christian Glöckner
+    email: webmaster@kali-yuga.de
+
+imprint:
+  represented_by:
+    - Jan Koch
+    - c/o Rechtsanwälte Diehl & Pape
+    - Innere Plauensche Straße 20
+    - 08056 Zwickau
+  phone: 0365-2041114
+
+navigation:
+  - releases
+  - lineup
+  - shows
+  - gallery
+  - merch

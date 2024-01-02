@@ -1,5 +1,6 @@
 .build
 .idea
+homepage.id
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

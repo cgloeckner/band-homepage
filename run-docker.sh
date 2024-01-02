@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE="kalipage.id"
+FILE="homepage.id"
 
 if test -f "$FILE"; then
         # start old instance
@@ -11,6 +11,6 @@ if test -f "$FILE"; then
 fi
 
 # start new instance
-DOCKER_ID=`docker run -d --restart always -p 8001:80 kali-page:latest`
+DOCKER_ID=`docker run -d --restart always -p 8001:80 homepage:latest`
 echo "Started docker $DOCKER_ID"
 echo $DOCKER_ID > $FILE

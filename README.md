@@ -68,4 +68,8 @@ www.example.com {
                 output file /var/log/caddy/band-homepage.log
         }
 }
+
+example.com {
+        redir https://www.example.com{uri} permanent
+}
 ```

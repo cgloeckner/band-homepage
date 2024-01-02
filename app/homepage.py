@@ -7,6 +7,8 @@ from . import base, content, seo
 
 class Homepage:
     def __init__(self, server: base.Server, cfg: dict) -> None:
+        self.cfg = cfg
+
         # load feed
         self.feed = content.Feed(server=server, cfg=cfg)
         self.feed.load_from_file()

@@ -74,7 +74,7 @@ def run(server: app.Server, homepage: app.Homepage) -> None:
     @server.app.get('/presskit')
     def static_presskit():
         path = pathlib.Path(homepage.presskit.zip_file)
-        return bottle.static_file(path.name, root=path.parent, download=f'{server.domain} EPK.zip',
+        return bottle.static_file(path.name, root=path.parent, download=f'{homepage.cfg["band_name"]} EPK.zip',
                                   mimetype='application/zip')
 
     @server.app.get('/robots.txt')

@@ -7,11 +7,22 @@ Engine for band homepages of
 
 ```yaml
 static.example.com {
-        encode zstd gzip
+  encode zstd gzip
 
-        root * /opt/band-homepage/views/static
+  handle /content/* {
+    root * /opt/band-homepage/example.com/static/
+    uri strip_prefix /content
+    file_server
+  }
+  
+  handle /* {
+    root * /opt/band-homepage/static/
+    file_server
+  }
 
-        file_server
+  log {
+    output log /var/log/caddy/band-homepage.log
+  }
 }
 
 www.example.com {

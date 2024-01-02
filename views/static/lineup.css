@@ -1,0 +1,69 @@
+div.lineup {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+div.overview {
+/*
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+*/
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.lineup > div.overview > div.member {
+    display: inline-block;
+    padding: 5px;
+
+    width: 25vw;
+    max-width: 300px;
+}
+
+div.lineup > div.overview > div.member > img.portrait {
+    border-radius: 5px;
+    width: 100%;
+}
+
+div.lineup > div.overview > div.member > img.portrait:hover {
+}
+
+div.lineup > div.overview > div.member > div {
+    text-align: center;
+    line-height: 1.5;
+    padding: 1px;
+}
+
+div.lineup > div.overview > div.member > div.name {
+    font-weight: bold;
+    font-size: large;
+}
+
+
+div.lineup > div.overview > div.member > div.nickname {
+    font-style: italic;
+}
+
+div.lineup > div.overview > div.member > div.position {
+}
+
+div.lineup > div.overview > div.member > div.projects {
+    font-size: small;
+    font-style: italic;
+}
+
+/* shrink on smaller screen */
+@media screen and (max-width: 800px) {
+
+    div.lineup > div.overview > div.member {
+        width: 40%;
+        max-width: unset;
+    }
+
+}

@@ -2,7 +2,7 @@ import bottle
 
 from typing import List
 
-from controller.base.module import Module, Server
+from app.base.module import Module, Server
 
 
 class Gallery(Module):
@@ -28,7 +28,7 @@ class Gallery(Module):
 
     def load_from_disc(self) -> None:
         extensions = Gallery.get_extension_wildcards()
-        root = self.server.get_static_path(True) / 'gallery'
+        root = self.server.path.get_static_path(True) / 'gallery'
 
         patterns = [root.glob(ext) for ext in extensions]
         self.data = [file.name for pattern in patterns for file in pattern]

@@ -4,7 +4,7 @@ import logging
 
 from typing import Dict, List
 
-from controller.base.module import Module, Server
+from app.base.module import Module, Server
 
 
 class Shows(Module):
@@ -33,7 +33,7 @@ class Shows(Module):
         return data
 
     def load_from_file(self) -> None:
-        filename = self.server.get_model_file('shows')
+        filename = self.server.path.get_content_file('shows')
         if not filename.exists():
             logging.warning(f'File not found: {filename}')
             return

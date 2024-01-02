@@ -1,6 +1,6 @@
 import bottle
 
-from controller import base
+from app import base
 
 
 class Contact(base.Module):

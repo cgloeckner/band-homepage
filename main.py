@@ -1,43 +1,134 @@
+from gevent import monkey; monkey.patch_all()
+
 import sys
 import yaml
 import pathlib
+import bottle
 
-import controller
+import app
 
 
-def main(data_root: pathlib.Path, cfg: dict):
-    server_kwargs = {
-        'host': '0.0.0.0',
-        'server': 'gevent',
-        'domain': cfg['domain'],
-        'port': 8000,
-        'debug': '--debug' in sys.argv,
-        'reloader': '--debug' in sys.argv,
-        'quiet': '--debug' not in sys.argv,
-        'reverse_proxy': '--debug' not in sys.argv
-    }
+def export_html(server: app.Server, homepage: app.Homepage) -> None:
+    # export html
+    root = server.path.get_build_path()
+    root.mkdir(exist_ok=True)
+
+    homepage.export_html(homepage.feed.template, root / 'index.html')
+    homepage.export_html(homepage.lineup.template, root / 'lineup.html')
+    homepage.export_html(homepage.shows.template, root / 'shows.html')
+    homepage.export_html(homepage.gallery.template, root / 'gallery.html')
+    homepage.export_html(homepage.merch.template, root / 'merch.html')
+    homepage.export_html(homepage.releases.template, root / 'releases.html')
+    homepage.export_html(homepage.imprint.template, root / 'imprint.html')
+    homepage.export_html(homepage.contact.template, root / 'contact.html')
+
+    # render sitemap and robots.txt
+    homepage.sitemap.save_to_xml(server.path.get_build_path() / 'sitemap.xml')
+    homepage.robots.save_to_txt(server.path.get_build_path() / 'robots.txt')
+
+
+def run(server: app.Server, homepage: app.Homepage) -> None:
+    if server.debug:
+        @server.app.get('/static/<filename>')
+        def static_files(filename: str):
+            static_root = server.path.get_static_path()
+            return bottle.static_file(filename, root=static_root)
+
+        @server.app.get('/static/content/<path:path>')
+        def static_content(path: str):
+            static_root = server.path.get_static_path(True)
+            return bottle.static_file(path, root=static_root)
+
+    @server.app.get('/')
+    def feed_page():
+        return homepage.feed.template
+
+    @server.app.get('/releases')
+    def releases_page():
+        return homepage.releases.template
+
+    @server.app.get('/lineup')
+    def lineup_page():
+        return homepage.lineup.template
+
+    @server.app.get('/shows')
+    def shows_page():
+        return homepage.shows.template
+
+    @server.app.get('/gallery')
+    def gallery_page():
+        return homepage.gallery.template
+
+    @server.app.get('/merch')
+    def merch_page():
+        return homepage.merch.template
+
+    @server.app.get('/imprint')
+    def impressum_page():
+        return homepage.imprint.template
+
+    @server.app.get('/contact')
+    def contact_page():
+        return homepage.contact.template
+
+    @server.app.get('/presskit')
+    def static_presskit():
+        path = pathlib.Path(homepage.presskit.zip_file)
+        return bottle.static_file(path.name, root=path.parent, download=f'{server.domain} EPK.zip',
+                                  mimetype='application/zip')
+
+    @server.app.get('/robots.txt')
+    def robots_txt():
+        robots_root = server.path.get_build_path()
+        return bottle.static_file('robots.txt', root=robots_root)
+
+    @server.app.get('/sitemap.xml')
+    def robots_txt():
+        robots_root = server.path.get_build_path()
+        return bottle.static_file('sitemap.xml', root=robots_root)
+
+    server.run()
+
+
+def usage() -> str:
+    return '''Usage: main.py <content_path>
+
+Options:
+    -p <portnumber>
+    --debug
+    --render-only
+'''
+
+
+def main() -> None:
+    content_root = pathlib.Path(sys.argv[1])
+
+    with open(content_root / 'settings.yaml', 'r') as handle:
+        config = yaml.safe_load(handle)
+
+    with open(content_root / 'biography.html', 'r') as handle:
+        config['biography'] = handle.read()
+
+    port = 8000
+    debug = '--debug' in sys.argv
 
     if '-p' in sys.argv:
         index = sys.argv.index('-p')
-        server_kwargs['port'] = int(sys.argv[index + 1])
+        port = int(sys.argv[index + 1])
 
-    if '-h' in sys.argv:
-        print('Usage: -p <portnumber>')
-        return
+    # load server and homepage
+    server = app.Server(app_root=pathlib.Path('.'), content_root=content_root, domain=config['domain'],
+                        debug=debug, host='0.0.0.0', port=port, server='gevent')
 
-    controller.main(data_root, cfg, server_kwargs, '--render' in sys.argv)
+    homepage = app.Homepage(server, config)
+    export_html(server, homepage)
+
+    if '--render-only' not in sys.argv:
+        run(server, homepage)
 
 
 if __name__ == '__main__':
-    sys.argv.append('--debug')
-
-    # example
-    model = pathlib.Path('..') / 'kali-yuga.de' / 'model'
-
-    with open(model / 'settings.yaml', 'r') as handle:
-        config = yaml.safe_load(handle)
-
-    with open(model / 'biography.html', 'r') as handle:
-        config['biography'] = handle.read()
-
-    main(model, config)
+    if len(sys.argv) == 1 or '-h' in sys.argv:
+        print(usage())
+    else:
+        main()

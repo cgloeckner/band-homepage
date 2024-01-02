@@ -1,5 +1,5 @@
     <div class="member">
-        <img class="portrait" alt="{{data['name']}}" src="{{module.server.get_static_url(f'/content/lineup/{key}')}}.jpg">
+        <img class="portrait" alt="{{data['name']}}" src="{{module.server.path.get_static_url(f'/content/lineup/{key}')}}.jpg">
         <div class="name">{{data['name']}}</div>
 %if 'nickname' in data:
         <div class="nickname">„{{data['nickname']}}“</div>

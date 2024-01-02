@@ -21,7 +21,7 @@ Angaben gemäß § 5 TMG
     <br>
     <b>Kontakt:</b><br>
     Telefon: {{module.phone}}<br>
-%contact_email = module.server.get_contact_email()
+%contact_email = module.server.email.get_contact_email()
     E-Mail: <a href="mailto:{{contact_email}}">{{contact_email}}</a><br>
 </p>
 

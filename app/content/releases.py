@@ -1,6 +1,6 @@
 import bottle
 
-from controller.base.module import Module, Server
+from app.base.module import Module, Server
 from .merch import Merch
 
 

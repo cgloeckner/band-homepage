@@ -1,6 +1,6 @@
 import pathlib
 
-from controller.base.server import Server
+from app.base.server import Server
 
 
 class RobotsTxt:

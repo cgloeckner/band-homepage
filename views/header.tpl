@@ -2,20 +2,20 @@
 <!-- Copyright (C) {{datetime.datetime.now().year}} {{module.band_name}} //-->
 
 <!DOCTYPE html>
-<html lang="de" style="background-image: url('{{module.server.get_static_url('/content/background.jpg')}}');">
+<html lang="de" style="background-image: url('{{module.server.path.get_static_url('/content/background.jpg')}}');">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{module.server.get_static_url('/content/shortcut-icon.png')}}" type="image/x-icon">
-    <link rel="apple-touch-icon" href="{{module.server.get_static_url('/content/apple-touch-icon.png')}}">
+    <link rel="shortcut icon" href="{{module.server.path.get_static_url('/content/shortcut-icon.png')}}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{module.server.path.get_static_url('/content/apple-touch-icon.png')}}">
 
 %for css in ['normalize', 'layout', 'navigation', module_name]:
-    %url = module.server.get_static_url('/' + css + '.css')
+    %url = module.server.path.get_static_url('/' + css + '.css')
     <link rel="stylesheet" type="text/css" href="{{url}}">
 %end
 
     <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"></script>
-    <script src="{{module.server.get_static_url('/collapse.js')}}"></script>
+    <script src="{{module.server.path.get_static_url('/collapse.js')}}"></script>
 
 %title = [module.band_name.upper()]
 %if module_name in ['feed', 'impressum', 'contact']:

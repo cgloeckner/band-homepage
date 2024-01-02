@@ -1,6 +1,6 @@
 %include('header', module_name='releases')
 
-<img class="title" alt="{{module.band_name}} Foto" src="{{module.server.get_static_url('/content/titles/releases.jpg')}}">
+<img class="title" alt="{{module.band_name}} Foto" src="{{module.server.path.get_static_url('/content/titles/releases.jpg')}}">
 
 <div class="releases">
 

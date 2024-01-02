@@ -7,7 +7,7 @@ from typing import Dict, List
 from enum import auto
 from strenum import LowercaseStrEnum
 
-from controller.base.module import Module, Server
+from app.base.module import Module, Server
 
 
 class MerchCategory(LowercaseStrEnum):
@@ -44,7 +44,7 @@ class Merch(Module):
             return []
 
     def load_from_file(self, category: MerchCategory) -> None:
-        filename = self.server.get_model_file(str(category.value))
+        filename = self.server.path.get_content_file(str(category.value))
         if not filename.exists():
             logging.warning(f'File not found: {filename}')
             return

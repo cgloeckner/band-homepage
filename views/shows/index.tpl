@@ -1,6 +1,6 @@
 %include('header', module_name='shows')
 
-<img class="title" alt="{{module.band_name}} Foto" src="{{module.server.get_static_url('/content/titles/shows.jpg')}}">
+<img class="title" alt="{{module.band_name}} Foto" src="{{module.server.path.get_static_url('/content/titles/shows.jpg')}}">
 
 <div class="shows">
 
@@ -10,7 +10,7 @@
     <br>
     <br>
     <b>Konzertanfragen an:</b><br>
-%booking_email = module.server.get_booking_email()
+%booking_email = module.server.email.get_booking_email()
     <a href="mailto:{{booking_email}}">{{booking_email}}</a>
 </p>
 

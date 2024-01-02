@@ -28,15 +28,16 @@ def export_html(server: app.Server, homepage: app.Homepage) -> None:
 
 
 def run(server: app.Server, homepage: app.Homepage) -> None:
-    @server.app.get('/static/<filename>')
-    def static_files(filename: str):
-        static_root = server.path.get_static_path()
-        return bottle.static_file(filename, root=static_root)
+    if not server.debug:
+        @server.app.get('/static/<filename>')
+        def static_files(filename: str):
+            static_root = server.path.get_static_path()
+            return bottle.static_file(filename, root=static_root)
 
-    @server.app.get('/static/content/<path:path>')
-    def static_content(path: str):
-        static_root = server.path.get_static_path(True)
-        return bottle.static_file(path, root=static_root)
+        @server.app.get('/static/content/<path:path>')
+        def static_content(path: str):
+            static_root = server.path.get_static_path(True)
+            return bottle.static_file(path, root=static_root)
 
     @server.app.get('/')
     def feed_page():

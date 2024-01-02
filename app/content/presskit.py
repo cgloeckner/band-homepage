@@ -7,7 +7,7 @@ class Presskit:
     def __init__(self, server: Server) -> None:
         self.server = server
         self.root = server.path.content_root / 'presskit'
-        self.zip_file = server.path.content_root / 'presskit.zip'
+        self.zip_file = server.path.get_static_path(True) / 'presskit.zip'
 
     def build(self) -> None:
         """Zips all files and folders."""

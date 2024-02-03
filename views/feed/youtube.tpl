@@ -1,5 +1,5 @@
         <embed
-            src="https://www.youtube-nocookie.com/embed/{{data['id']}}"
+            src="https://www.youtube-nocookie.com/embed/{{data['target']}}"
             wmode="transparent"
             type="video/mp4"
             width="400" height="250"

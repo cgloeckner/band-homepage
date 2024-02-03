@@ -14,6 +14,9 @@
     %if module.data[key]['type'] == 'youtube':
         %include('feed/youtube', data=value)
     %end
+    %if module.data[key]['type'] == 'thumbnail':
+        %include('feed/html', data=value)
+    %end
 %end
     </div>
 

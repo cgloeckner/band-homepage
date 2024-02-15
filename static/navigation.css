@@ -109,3 +109,19 @@ div.navigation > div.elements > a:hover {
         float: unset;
     }
 }
+
+div.social-profiles {
+    position: absolute;
+    left: 50%;
+    top: 22.5px;
+    transform: translate(-50%, -50%);
+}
+
+div.social-profiles a {
+    display: inline-block;
+}
+
+div.social-profiles a img:hover {
+    filter: drop-shadow(0px 0px 10px white)
+          drop-shadow(0px 0px 0 white);
+}

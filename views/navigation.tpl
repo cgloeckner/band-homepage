@@ -5,6 +5,8 @@
     <div class="navigation">
         <div class="icon">&#x2261;</div>
 
+%include('profiles')
+
         <div class="elements">
             <a href="/" title="News, Videos">Feed</a>
 %if 'releases' in module.navigation:

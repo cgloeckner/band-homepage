@@ -33,9 +33,17 @@ imprint:
     - 07548 Gera
   phone: 0160 92307857
 
+profiles:
+  facebook: http://facebook.com/laserscopeofficial
+  instagram: http://instagram.laser-scope.de
+  youtube: http://youtube.laser-scope.de
+  spotify: http://spotify.laser-scope.de
+  bandcamp: http://laserscope.bandcamp.com
+  soundcloud: http://soundcloud.com/laserscopeofficial
+
 navigation:
   #- releases
   - lineup
-  #- shows
-  #- gallery
+  - shows
+  - gallery
   #- merch

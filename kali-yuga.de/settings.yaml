@@ -1,7 +1,6 @@
 band_name: Kali Yuga
 genre: Death Metal
 domain: kali-yuga.de
-description: Die offizielle Homepage der Geraer Death Metal Band KALI YUGA mit Infos zu Merchandise, Live Shows und vielem mehr.
 location: 07549 Gera
 keywords:
   - Kali Yuga
@@ -11,6 +10,16 @@ keywords:
   - Melodic Death Metal
   - Band
   - Gera
+
+description:
+  feed: Die offizielle Homepage der Geraer Death Metal Band KALI YUGA mit Infos zu Merchandise, Live Shows und vielem mehr.
+  releases: Die offizielle Homepage der Geraer Death Metal Band KALI YUGA mit Infos zu Merchandise, Live Shows und vielem mehr.
+  lineup: Die Geraer Death Metal Band KALI YUGA SCOPE besteht aus Michael (Gitarre), Eik (Gitarre), Christian (Gesang), Jan (Bass) und Jean-Peer (Schlagzeug).
+  shows: Die offizielle Homepage der Geraer Death Metal Band KALI YUGA mit Infos zu Merchandise, Live Shows und vielem mehr.
+  gallery: Die offizielle Homepage der Geraer Death Metal Band KALI YUGA mit Infos zu Merchandise, Live Shows und vielem mehr.
+  merch: Die offizielle Homepage der Geraer Death Metal Band KALI YUGA mit Infos zu Merchandise, Live Shows und vielem mehr.
+  impressum: kontakt@kali-yuga.de
+  contact: kontakt@kali-yuga.de
 
 contact:
   - title: Management & Booking

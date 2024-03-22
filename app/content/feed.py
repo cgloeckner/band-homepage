@@ -1,6 +1,7 @@
 import tomli
 import bottle
 import logging
+import datetime
 
 from app.base.module import Module, Server
 
@@ -17,6 +18,10 @@ class Feed(Module):
 
         with open(filename, 'rb') as file:
             self.data = tomli.load(file)
+
+        # filter out expired posts
+        today = datetime.datetime.today().date()
+        #self.data = {key:  value for key, value in self.data.items() if value.get('expire', today) >= today}
 
     def render(self) -> None:
         self.template = bottle.template('feed/index', module=self)

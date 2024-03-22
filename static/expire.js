@@ -1,6 +1,4 @@
 function check_expire() {
-    console.log('go')
-
     const today = Date.now()
     const elements = document.getElementsByClassName('may_expire')
 

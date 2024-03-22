@@ -21,7 +21,7 @@ class Feed(Module):
 
         # filter out expired posts
         today = datetime.datetime.today().date()
-        #self.data = {key:  value for key, value in self.data.items() if value.get('expire', today) >= today}
+        self.data = {key:  value for key, value in self.data.items() if value.get('expire', today) >= today}
 
     def render(self) -> None:
         self.template = bottle.template('feed/index', module=self)

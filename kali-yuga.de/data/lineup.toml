@@ -10,6 +10,7 @@ name="Christian Glöckner"
 nickname="glocke"
 position="Gesang"
 since=2018
+projects={"Laser Scope" = "https://www.laser-scope.de"}
 
 [eik]
 name="Eik Halle"
@@ -25,4 +26,3 @@ position="Bass"
 name="Jean-Peer Krutz"
 position="Schlagzeug"
 since=2012
-projects={"Artless" = "https://www.facebook.com/artless"}

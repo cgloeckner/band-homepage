@@ -9,7 +9,6 @@
     <h1>{{module.title}}</h1>
 
     <div class="elements">
-
 %for key, value in module.data.items():
     %if module.data[key]['type'] == 'youtube':
         %include('feed/youtube', data=value)

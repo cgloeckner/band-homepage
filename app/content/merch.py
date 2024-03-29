@@ -29,14 +29,18 @@ class MerchCategory(LowercaseStrEnum):
 class Merch(Module):
     def __init__(self, server: Server, cfg: dict) -> None:
         super().__init__(server, cfg)
-        self.data = dict()
+        self.data: dict[MerchCategory, List] = dict()
         self.base_title = 'Merchandise'
 
     @staticmethod
     def process_merch(merch: Dict[str, Dict]) -> List[dict]:
+        # add tag as attribute
+        for tag in merch:
+            merch[tag]['tag'] = tag
+        # convert to list of dicts
         return [merch[key] for key in merch]
 
-    def get_cds(self) -> List[dict]:
+    def get_cds(self) -> List[Dict]:
         try:
             return self.data[MerchCategory.CDS]
         except KeyError as e:

@@ -1,5 +1,11 @@
 [patch]
 title="Patch"
 thumbnail="patch"
-description=""
+description="- SOLD OUT -"
 price=500
+
+[feuerzeug]
+title="Feuerzeug"
+thumbnail="feuerzeug"
+description=""
+price=300

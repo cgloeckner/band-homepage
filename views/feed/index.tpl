@@ -10,10 +10,13 @@
 
     <div class="elements">
 %for key, value in module.data.items():
-    %if module.data[key]['type'] == 'youtube':
+    %if value['type'] == 'youtube-short':
+        %include('feed/youtube-short', data=value)
+    %end
+    %if value['type'] == 'youtube':
         %include('feed/youtube', data=value)
     %end
-    %if module.data[key]['type'] == 'thumbnail':
+    %if value['type'] == 'thumbnail':
         %include('feed/html', data=value)
     %end
 %end

@@ -30,7 +30,11 @@
     <title>{{title}}</title>
 %url = '' if module_name == 'feed' else module_name
 %url = 'imprint' if module_name == 'impressum' else module_name
+%if url == 'feed':
+    <link rel="canonical" href="https://www.{{module.domain}}">
+%else:
     <link rel="canonical" href="https://www.{{module.domain}}/{{url}}">
+%end
     <meta name="title" content="{{module.title}}">
     <meta name="description" content="{{module.description[module_name]}}">
     <meta name="keywords" content="{{', '.join(module.keywords)}}"> <!-- but google ignores this anyway //-->

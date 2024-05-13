@@ -44,7 +44,7 @@ profiles:
   soundcloud: http://soundcloud.com/laserscopeofficial
 
 navigation:
-  #- releases
+  - releases
   - lineup
   - shows
   - gallery

@@ -39,13 +39,13 @@ profiles:
   facebook: http://facebook.com/laserscopeofficial
   instagram: https://www.instagram.com/laserscopeofficial
   youtube: https://www.youtube.com/@laserscopeofficial
-  #spotify: ...
+  spotify: https://open.spotify.com/intl-de/artist/7DDzLyIyuPJRO1DSh2Nfb0
   bandcamp: http://laserscope.bandcamp.com
   soundcloud: http://soundcloud.com/laserscopeofficial
 
 navigation:
-  #- releases
+  - releases
   - lineup
   - shows
   - gallery
-  #- merch
+  - merch

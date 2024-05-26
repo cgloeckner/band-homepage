@@ -16,7 +16,7 @@ class Module(ABC):
         self.keywords: list[str] = cfg['keywords']
         self.profiles: dict[str, dict[str, str]] = cfg['profiles']
         self.navigation: list[str] = cfg['navigation']
-        self.merch: dict[str, str] | None = cfg['merch']
+        self.merch: dict[str, str] | None = cfg.get('merch')
 
         self.social_icons: dict[str, str] = {
             'facebook': 'https://static.xx.fbcdn.net/rsrc.php/yT/r/aGT3gskzWBf.ico',

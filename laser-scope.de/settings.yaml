@@ -49,3 +49,8 @@ navigation:
   - shows
   - gallery
   - merch
+
+merch:
+  title: Laser Scope Bandcamp-Store
+  type: bandcamp
+  url: https://laserscope.bandcamp.com/merch

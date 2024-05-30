@@ -14,8 +14,8 @@ class PathApi:
     def get_build_path(self) -> pathlib.Path:
         return self.app_root / '.build'
 
-    def get_content_file(self, filename: str) -> pathlib.Path:
-        return self.content_root / 'data' / f'{filename}.toml'
+    def get_content_file(self, filename: str, ext: str = 'toml') -> pathlib.Path:
+        return self.content_root / 'data' / f'{filename}.{ext}'
 
     def get_static_url(self, relative_url: str) -> str:
         if not self.debug:

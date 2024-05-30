@@ -15,5 +15,14 @@
 %end
                     </ol>
                 </div>
+%if 'bandcamp' in item['listen']:
+    %base_url = module.profiles['bandcamp']
+    %album_uri = item['listen']['bandcamp']
+            <iframe style="border: 0; width: 100%; height: 42px;"
+                    src="https://bandcamp.com/EmbeddedPlayer/album=3853137783/size=small/bgcol=333333/linkcol=ffffff/transparent=true/"
+                    seamless>
+                <a href="{{base_url}}/album/{{album_uri}}">{{item['title']}}</a>
+            </iframe>
+%end
             </div>
         </div>

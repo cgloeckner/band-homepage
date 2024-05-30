@@ -32,17 +32,19 @@
 %url = 'imprint' if module_name == 'impressum' else module_name
 %if url == 'feed':
     <link rel="canonical" href="https://www.{{module.domain}}">
+    <meta property="og:url" content="https://www.{{module.domain}}">
 %else:
     <link rel="canonical" href="https://www.{{module.domain}}/{{url}}">
+    <meta property="og:url" content="https://www.{{module.domain}}/{{url}}">
 %end
     <meta name="title" content="{{module.title}}">
     <meta name="description" content="{{module.description[module_name]}}">
     <meta name="keywords" content="{{', '.join(module.keywords)}}"> <!-- but google ignores this anyway //-->
     <meta name="robots" content="index,follow">
     <meta property="og:title" content="{{module.title}}">
+    <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{module.title}}">
     <meta property="og:description" content="{{module.description[module_name]}}">
-    <meta property="og:url" content="https://www.{{module.domain}}">
     <meta name="HandheldFriendly" content="true">
     <meta name="format-detection" content="telephone=yes">
 </head>

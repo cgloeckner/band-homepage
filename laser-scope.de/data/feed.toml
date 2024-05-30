@@ -1,7 +1,12 @@
 [ep-for-sale]
 type="thumbnail"
-url="https://static.laser-scope.de/content/cds/6th-dimension.jpg"
+url="https://f4.bcbits.com/img/0036138245_10.jpg"
 target="https://laserscope.bandcamp.com/merch"
+
+[ep-streaming]
+type="bandcamp"
+url="6th-dimension"
+title="6th Dimension (EP)"
 
 [forced-to-shatter-basement]
 type="youtube"

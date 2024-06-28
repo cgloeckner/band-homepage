@@ -1,6 +1,7 @@
 .build
 .idea
 homepage.id
+.code-workspace
 
 laser-scope.de/static/presskit.zip
 kali-yuga.de/static/presskit.zip

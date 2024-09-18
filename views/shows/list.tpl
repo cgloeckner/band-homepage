@@ -2,7 +2,11 @@
     %alt = '' if index % 2 == 0 else 'alternate'
         <p class="{{alt}}">
             {{show['date'].strftime('%d.%m.%y')}} &mdash; <b>{{show['title']}}</b>
-    %if show['location'] != '':
+    %if 'description' in show and show['description'] != '':
+            <br>
+            <i>{{show['description']}}</i>
+    %end
+    %if 'location' in show and show['location'] != '':
             <br>
             ({{show['location']}})
     %end

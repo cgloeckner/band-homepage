@@ -1,14 +1,17 @@
 [metal-basement]
 title="Metal Basement"
 location="Basement, Jena"
+description="mit Backmars Village"
 date=2024-03-23
 
 [sachsenkeller]
 title="Metal im Sachsenkeller"
 location="Sachsenkeller, Meißen"
+description="mit Akoasma und Argorok"
 date=2024-09-14
 
 [bautzen]
-title="TO BE ANNOUNCED"
-location="stay tuned"
+title="Club Konzert"
+location="Club Lamorphyr, Bautzen"
+description="mit State of Play"
 date=2024-11-09

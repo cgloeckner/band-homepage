@@ -33,5 +33,8 @@ class Gallery(Module):
         patterns = [root.glob(ext) for ext in extensions]
         self.data = [file.name for pattern in patterns for file in pattern]
 
+        # sort by suffix of fname (e.g. artist-date-number.jpg)
+        self.data.sort(key=lambda fname: fname.split('.')[0][-1])
+
     def render(self) -> None:
         self.template = bottle.template('gallery/index', module=self)

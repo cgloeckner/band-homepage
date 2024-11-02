@@ -109,7 +109,7 @@ def main() -> None:
     with open(content_root / 'biography.html', 'r') as handle:
         config['biography'] = handle.read()
 
-    port = 8000
+    port = 8080
     debug = '--debug' in sys.argv
 
     if '-p' in sys.argv:

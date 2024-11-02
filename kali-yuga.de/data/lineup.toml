@@ -5,13 +5,6 @@ position="Gitarre"
 projects={"Radiation Dust" = "https://www.facebook.com/radiationdust/"}
 since=2009
 
-[christian]
-name="Christian Glöckner"
-nickname="glocke"
-position="Gesang"
-since=2018
-projects={"Laser Scope" = "https://www.laser-scope.de"}
-
 [eik]
 name="Eik Halle"
 position="Gitarre"

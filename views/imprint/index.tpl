@@ -9,8 +9,6 @@
 
 <h1>Impressum</h1>
 
-Angaben gemäß § 5 TMG
-
 <h2 class="center">{{module.band_name}}</h2>
 
 <p class="center card">
@@ -24,8 +22,6 @@ Angaben gemäß § 5 TMG
 %contact_email = module.server.email.get_contact_email()
     E-Mail: <a href="mailto:{{contact_email}}">{{contact_email}}</a><br>
 </p>
-
-%include('imprint/disclaimer')
 
 </div>
 

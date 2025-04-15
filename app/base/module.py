@@ -24,7 +24,9 @@ class Module(ABC):
             'youtube': 'https://www.youtube.com/s/desktop/691ad9c2/img/favicon_32x32.png',
             'spotify': 'https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico',
             'bandcamp': 'https://s4.bcbits.com/img/favicon/favicon-32x32.png',
-            'soundcloud': 'https://a-v2.sndcdn.com/assets/images/sc-icons/favicon-2cadd14bdb.ico'
+            'soundcloud': 'https://a-v2.sndcdn.com/assets/images/sc-icons/favicon-2cadd14bdb.ico',
+            'tiktok': 'https://www.tiktok.com/favicon.ico',
+            'x': 'https://abs.twimg.com/favicons/twitter.3.ico'
         }
 
     @property

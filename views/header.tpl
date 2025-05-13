@@ -42,6 +42,7 @@
     <meta name="keywords" content="{{', '.join(module.keywords)}}"> <!-- but google ignores this anyway //-->
     <meta name="robots" content="index,follow">
     <meta property="og:title" content="{{module.title}}">
+    <meta property="og:image" content="{{module.server.path.get_static_url('/content/logo_inverted.png')}}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{module.title}}">
     <meta property="og:description" content="{{module.description[module_name]}}">

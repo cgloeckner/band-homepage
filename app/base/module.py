@@ -19,7 +19,7 @@ class Module(ABC):
         self.merch: dict[str, str] | None = cfg.get('merch')
 
         self.social_icons: dict[str, str] = {
-            'facebook': 'https://static.xx.fbcdn.net/rsrc.php/yT/r/aGT3gskzWBf.ico',
+            'facebook': 'https://www.facebook.com/favicon.ico',
             'instagram': 'https://static.cdninstagram.com/rsrc.php/y4/r/QaBlI0OZiks.ico',
             'youtube': 'https://www.youtube.com/s/desktop/691ad9c2/img/favicon_32x32.png',
             'spotify': 'https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico',

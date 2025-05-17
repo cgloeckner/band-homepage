@@ -1,0 +1,34 @@
+
+iframe#cookiebanner {
+    position: fixed;
+    top: 45px;
+    left: 0;
+    width: 100vw;
+    height: 90px;
+    border: none;
+    z-index: 100;
+}
+
+body.cookiebanner,
+body.cookieinfo {
+    text-align: center;
+    line-height: 2;
+    padding: 5px;
+    background-color: var(--background-color-alpha-v2);
+    overflow: hidden;
+}
+
+body.cookiebanner p,
+body.cookieinfo p {
+    text-align: unset;
+    padding: unset;
+}
+
+body.cookieinfo {
+    width: 100vw;
+}
+
+body.cookiebanner button,
+body.cookieinfo button {
+    padding: 5px;
+}

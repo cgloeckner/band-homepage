@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/static/normalize.css">
     <link rel="stylesheet" type="text/css" href="/static/layout.css">
     <link rel="stylesheet" type="text/css" href="/static/navigation.css">
+    <link rel="stylesheet" type="text/css" href="/static/cookies.css">
     <link rel="stylesheet" type="text/css" href="/static/contact.css">
 
     <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"></script>
@@ -19,6 +20,11 @@
     <script src="/static/expire.js"></script>
     <script src="/static/main.js"></script>
     <script src="/static/embed-cookie-banner/embed-handler.js"></script>
+    <script>
+        $(document).ready(function() {
+            on_page_load('/content/cookie-info.html', '/content/cookie-banner.html')
+        })
+    </script>
 
     <title>LASER SCOPE - Heavy Metal - Official Homepage</title>
     <link rel="canonical" href="https://www.laser-scope.de/contact">

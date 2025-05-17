@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="/content/shortcut-icon.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="/content/apple-touch-icon.png">
 
-%for sheet in ['normalize', 'layout', 'navigation', module_name]:
+%for sheet in ['normalize', 'layout', 'navigation', 'cookies', module_name]:
     <link rel="stylesheet" type="text/css" href="/static/{{sheet}}.css">
 %end
 
@@ -18,6 +18,11 @@
 %for script in ['collapse', 'expire', 'main', 'embed-cookie-banner/embed-handler']:
     <script src="/static/{{script}}.js"></script>
 %end
+    <script>
+        $(document).ready(function() {
+            on_page_load('/content/cookie-info.html', '/content/cookie-banner.html')
+        })
+    </script>
 
 %title = [module.band_name.upper()]
 %if module_name in ['feed', 'impressum', 'contact']:

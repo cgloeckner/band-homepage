@@ -28,7 +28,7 @@ class Gallery(Module):
 
     def load_from_disc(self) -> None:
         extensions = Gallery.get_extension_wildcards()
-        root = self.server.path.get_static_path() / 'gallery'
+        root = self.server.path.get_www_path() / 'content' / 'gallery'
 
         patterns = [root.glob(ext) for ext in extensions]
         self.data = [file.name for pattern in patterns for file in pattern]

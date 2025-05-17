@@ -1,0 +1,3 @@
+[submodule "static/embed-cookie-banner"]
+	path = static/embed-cookie-banner
+	url = https://github.com/cgloeckner/embed-cookie-banner

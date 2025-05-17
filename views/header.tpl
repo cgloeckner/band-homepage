@@ -15,6 +15,7 @@
 %end
 
     <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"></script>
+    <script src="{{module.server.path.get_static_url('/embed-cookie-banner/embed-handler.js')}}"></script>
     <script src="{{module.server.path.get_static_url('/collapse.js')}}"></script>
     <script src="{{module.server.path.get_static_url('/expire.js')}}"></script>
     <script src="{{module.server.path.get_static_url('/main.js')}}"></script>

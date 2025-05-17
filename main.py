@@ -10,7 +10,7 @@ import app
 
 def export_html(server: app.Server, homepage: app.Homepage) -> None:
     # export html
-    root = server.path.get_build_path()
+    root = server.path.get_www_path()
     root.mkdir(exist_ok=True)
 
     homepage.export_html(homepage.feed.template, root / 'index.html')
@@ -23,8 +23,8 @@ def export_html(server: app.Server, homepage: app.Homepage) -> None:
     homepage.export_html(homepage.contact.template, root / 'contact.html')
 
     # render sitemap and robots.txt
-    homepage.sitemap.save_to_xml(server.path.get_build_path() / 'sitemap.xml')
-    homepage.robots.save_to_txt(server.path.get_build_path() / 'robots.txt')
+    homepage.sitemap.save_to_xml(server.path.get_www_path() / 'sitemap.xml')
+    homepage.robots.save_to_txt(server.path.get_www_path() / 'robots.txt')
 
 
 def run(server: app.Server, homepage: app.Homepage) -> None:
@@ -36,7 +36,7 @@ def run(server: app.Server, homepage: app.Homepage) -> None:
 
         @server.app.get('/static/content/<path:path>')
         def static_content(path: str):
-            static_root = server.path.get_static_path(True)
+            static_root = server.path.get_static_path()
             return bottle.static_file(path, root=static_root)
 
     @server.app.get('/')
@@ -79,30 +79,20 @@ def run(server: app.Server, homepage: app.Homepage) -> None:
 
     @server.app.get('/robots.txt')
     def robots_txt():
-        robots_root = server.path.get_build_path()
+        robots_root = server.path.get_www_path()
         return bottle.static_file('robots.txt', root=robots_root)
 
     @server.app.get('/sitemap.xml')
     def robots_txt():
-        robots_root = server.path.get_build_path()
+        robots_root = server.path.get_www_path()
         return bottle.static_file('sitemap.xml', root=robots_root)
 
     server.run()
 
 
-def usage() -> str:
-    return '''Usage: main.py <content_path>
-
-Options:
-    -p <portnumber>
-    --debug
-    --render-only
-'''
-
-
 def main() -> None:
-    content_root = pathlib.Path(sys.argv[1])
-
+    content_root = pathlib.Path('data')
+    
     with open(content_root / 'settings.yaml', 'r') as handle:
         config = yaml.safe_load(handle)
 
@@ -123,12 +113,6 @@ def main() -> None:
     homepage = app.Homepage(server, config)
     export_html(server, homepage)
 
-    if '--render-only' not in sys.argv:
-        run(server, homepage)
-
 
 if __name__ == '__main__':
-    if len(sys.argv) == 1 or '-h' in sys.argv:
-        print(usage())
-    else:
-        main()
+    main()

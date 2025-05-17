@@ -11,21 +11,12 @@ class PathApi:
     domain: str
     debug: bool
 
-    def get_build_path(self) -> pathlib.Path:
-        return self.app_root / '.build'
-
     def get_content_file(self, filename: str, ext: str = 'toml') -> pathlib.Path:
-        return self.content_root / 'data' / f'{filename}.{ext}'
+        return self.content_root / f'{filename}.{ext}'
 
-    def get_static_url(self, relative_url: str) -> str:
-        if not self.debug:
-            return f'https://static.{self.domain}{relative_url}'
+    def get_www_path(self) -> pathlib.Path:
+        return self.app_root / 'www'
 
-        return f'/static{relative_url}'
-
-    def get_static_path(self, use_content: bool = False) -> pathlib.Path:
+    def get_static_path(self) -> pathlib.Path:
         """Returns local path to static files (css sheets etc.)"""
-        if use_content:
-            return self.content_root / 'static'
-        else:
-            return self.app_root / 'static'
+        return self.app_root / 'static'

@@ -23,7 +23,7 @@ class Server:
         self.app.catchall = self.debug
 
     def get_presskit_url(self) -> str:
-        return self.path.get_static_url('/content/presskit.zip')
+        return '/content/presskit.zip'
 
     def run(self) -> None:
         bottle.run(host=self.host, port=self.port, debug=self.debug, reloader=self.debug, quiet=not self.debug,

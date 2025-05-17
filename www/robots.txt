@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://www.laser-scope.de/sitemap.xml

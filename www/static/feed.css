@@ -1,0 +1,83 @@
+div.feed {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+div.feed > img.large-logo {
+    padding: 25px;
+    width: 40vw;
+
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+}
+
+div.feed > div.reviews {
+}
+
+div.feed > div.reviews > blockquote {
+    max-width: 350px;
+    text-align: center;
+    background-color: var(--background-color-alpha-v2);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+}
+
+div.feed > div.reviews > blockquote > div.quote {
+    font-family: cursive;
+    font-size: x-large;
+    padding: 15px;
+    margin: 10px;
+    text-shadow: 0px 0px 25px rgba(255, 255, 255, 0.5);
+}
+
+div.feed > div.reviews > blockquote > div.source {
+    padding: 5px;
+    margin: 5px;
+    text-align: right;
+}
+
+div.feed > div.elements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+div.feed > div.elements > iframe,
+div.feed > div.elements > a {
+    padding: 10px;
+}
+
+div.feed > div.elements > embed {
+    padding: 10px;
+    border: 0px;
+}
+
+div.feed > div.elements > a > img.thumbnail {
+    max-width: 350px;
+    max-height: 250px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+
+   /* transition: transform .5s ease;*/
+}
+
+@media screen and (max-width: 800px) {
+
+    div.feed > img.large-logo {
+        top: 20px;
+        width: 200px;
+    }
+
+    div.feed > div.elements > a > img.thumbnail {
+        max-width: 80vw;
+    }
+}

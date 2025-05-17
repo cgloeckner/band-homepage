@@ -1,5 +1,5 @@
     <a href="/">
-        <img class="navi-logo" alt="{{module.band_name}}" src="{{module.server.path.get_static_url('/content/logo_inverted.png')}}">
+        <img class="navi-logo" alt="{{module.band_name}}" src="/content/logo_inverted.png">
     </a>
 
     <div class="navigation">

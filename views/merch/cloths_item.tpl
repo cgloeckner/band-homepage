@@ -1,5 +1,5 @@
             <div class="item">
-                <img class="preview" alt="{{item['title']}}" src="{{module.server.path.get_static_url('/content/cloths/' + item['tag'] + '.png')}}">
+                <img class="preview" alt="{{item['title']}}" src="/content/cloths/' + item['tag'] + '.png">
                 <span class="title">{{item['title']}}</span>
                 <span class="description">{{item['description']}}</span>
 %include('merch/price', price=item['price'])

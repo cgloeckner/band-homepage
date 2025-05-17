@@ -1,10 +1,10 @@
 %include('header', module_name='feed')
 
-<img class="title" alt="{{module.band_name}} Foto" src="{{module.server.path.get_static_url('/content/titles/feed.jpg')}}">
+<img class="title" alt="{{module.band_name}} Foto" src="/content/titles/feed.jpg">
 
 <div class="feed">
 
-    <img class="large-logo" alt="{{module.band_name}}" src="{{module.server.path.get_static_url('/content/logo_inverted.png')}}">
+    <img class="large-logo" alt="{{module.band_name}}" src="/content/logo_inverted.png">
 
     <h1>{{module.title}}</h1>
 

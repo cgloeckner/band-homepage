@@ -13,7 +13,7 @@ class Lineup(Module):
         self.base_title = 'Lineup & Biografie'
 
     def load_from_file(self) -> None:
-        filename = self.server.path.get_content_file('lineup')
+        filename = self.server.path.get_config_file('lineup')
         if not filename.exists():
             logging.warning(f'File not found: {filename}')
             return

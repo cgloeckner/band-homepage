@@ -48,7 +48,7 @@ class Merch(Module):
             return []
 
     def load_from_file(self, category: MerchCategory) -> None:
-        filename = self.server.path.get_content_file(str(category.value))
+        filename = self.server.path.get_config_file(str(category.value))
         if not filename.exists():
             logging.warning(f'File not found: {filename}')
             return

@@ -33,7 +33,7 @@ class Shows(Module):
         return data
 
     def load_from_file(self) -> None:
-        filename = self.server.path.get_content_file('shows')
+        filename = self.server.path.get_config_file('shows')
         if not filename.exists():
             logging.warning(f'File not found: {filename}')
             return

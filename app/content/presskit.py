@@ -6,7 +6,7 @@ from app.base.module import Server
 class Presskit:
     def __init__(self, server: Server) -> None:
         self.server = server
-        self.root = server.path.content_root / 'presskit'
+        self.root = server.path.data_root / 'presskit'
         self.zip_file = server.path.get_www_path() / 'content' / 'presskit.zip'
 
     def build(self) -> None:

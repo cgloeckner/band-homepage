@@ -12,7 +12,7 @@ class Feed(Module):
         super().__init__(server, cfg)
 
     def load_quotes(self) -> dict[str, str]:
-        filename = self.server.path.get_content_file('reviews', 'yaml')
+        filename = self.server.path.get_config_file('reviews', 'yaml')
         if not filename.exists():
             logging.warning(f'File not found: {filename}')
             return {}
@@ -26,7 +26,7 @@ class Feed(Module):
         return data
 
     def load_thumbnail_content(self) -> dict[str, dict[str, str]]:
-        filename = self.server.path.get_content_file('feed')
+        filename = self.server.path.get_config_file('feed')
         if not filename.exists():
             logging.warning(f'File not found: {filename}')
             return {}

@@ -2,3 +2,7 @@ div.contact {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+a.download {
+    padding: 5px;
+}

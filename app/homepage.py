@@ -44,13 +44,9 @@ class Homepage:
         self.imprint = content.Imprint(server=server, cfg=cfg)
         self.imprint.render()
 
-        # load contact
+        # load contact (incl. presskit)
         self.contact = content.Contact(server=server, cfg=cfg)
         self.contact.render()
-
-        # build presskit (as static file)
-        self.presskit = content.Presskit(server=server)
-        self.presskit.build()
 
         # build sitemap.xml
         self.sitemap = seo.Sitemap()

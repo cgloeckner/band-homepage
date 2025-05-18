@@ -118,6 +118,7 @@ hr {
     margin-bottom: 25px;
 }
 
+div.card,
 p.card {
     max-width: 600px;
 

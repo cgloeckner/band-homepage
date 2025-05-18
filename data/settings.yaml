@@ -34,7 +34,7 @@ imprint:
     - Thomas Meier
     - Arminiusstraße 13c
     - 07548 Gera
-  phone: 0160 92307857
+  phone: +49 160 92307857
 
 profiles:
   facebook: http://facebook.com/laserscopeofficial
@@ -52,6 +52,6 @@ navigation:
   - merch
 
 merch:
-  title: Laser Scope Bandcamp-Store
+  title: Laser Scope Store
   type: bandcamp
   url: https://laserscope.bandcamp.com/merch

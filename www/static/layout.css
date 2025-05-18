@@ -84,6 +84,10 @@ h1 {
     text-align: center;
 }
 
+.underlined {
+    text-decoration: underline;
+}
+
 h1.shifted {
     text-shadow: 0px 0px 25px var(--text-blur-color);
 

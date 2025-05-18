@@ -25,14 +25,19 @@
         %include('merch/category', category=category, data=value)
     %end
 %else:
-    <p class="center card">Merch könnt ihr bei unseren Konzerten oder per Post erhalten.<br>
-    <br>
-    <b>Mehr Infos:</b><br>
-    &#x1F449; <a href="{{module.merch['url']}}" target="_blank">{{module.merch['title']}}</a> &#x1F448;<br>
-    <br>
-    <b>Anfragen / Bestellungen gerne auch an:</b><br>
+<div class="center card">
+    <p class="center">Merch könnt ihr bei unseren Konzerten oder per Post erhalten.</p>
+    
+    <b>Anfragen / Bestellungen gerne an</b>
+    <p class="center">
 %merch_email = module.server.email.get_merch_email()
     <a href="mailto:{{merch_email}}">{{merch_email}}</a>
+    </p>
+
+    oder hier
+    <p class="center">
+    &#x1F310; <a class="underlined" href="{{module.merch['url']}}" target="_blank">{{module.merch['title']}}</a>
+    </p>
 %end
 
 </div>

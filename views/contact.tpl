@@ -25,14 +25,14 @@
 
 <div class="center card">
     <p>In unserem EPK befindet sich eine Fülle von Informationen für Presse, Blogs, Redaktionen, Veranstalter:innen, Labels, Vertriebe und andere Geschäftspartner:innen.</p>
-    <p><a href="{{module.epk.get_url()}}">💾 {{module.epk.get_filename()}} (ca. {{module.epk.get_size()}})</a></p>
+    <p>&#x1F4BE; <a href="{{module.epk.get_url()}}">{{module.epk.get_filename()}} (ca. {{module.epk.get_size()}})</a></p>
 </div>
 
 <h2 class="center">Stage Rider</h2>
 
 <div class="center card">
     <p>Unser Stage Rider dient zur Orientierung von Veranstalter:innen und Livetechniker:innen in Vorbereitung auf Konzerte. Darin werden Idealbedingungen beschrieben. Abweichungen sind nach Rücksprache möglich.</p>
-    <p><a href="{{module.rider.get_url()}}" target="_blank">💾 {{module.rider.get_filename()}} (ca. {{module.rider.get_size()}})</a></p>
+    <p>&#x1F4BE; <a href="{{module.rider.get_url()}}" target="_blank">{{module.rider.get_filename()}} (ca. {{module.rider.get_size()}})</a></p>
 </div>
 
 </div>

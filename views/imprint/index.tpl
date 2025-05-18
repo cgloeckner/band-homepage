@@ -23,9 +23,7 @@
     E-Mail: <a href="mailto:{{contact_email}}">{{contact_email}}</a><br>
 </p>
 
-
-<a name="privacy"></a>
-<h1>Datenschutz</h1>
+<h2 class="center">Datenschutz</h2>
 
 <p class="center card">
     Wir verfolgen keine Besucheraktivitäten und nutzen keine Analysetools.<br>

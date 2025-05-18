@@ -6,3 +6,4 @@ from .lineup import Lineup
 from .merch import Merch, MerchCategory
 from .releases import Releases
 from .shows import Shows
+from .cookie import Cookie

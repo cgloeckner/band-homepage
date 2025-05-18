@@ -4,7 +4,3 @@
     <link rel="stylesheet" type="text/css" href="/static/layout.css">
     <link rel="stylesheet" type="text/css" href="/static/cookies.css">
 </head>
-<body class="cookieinfo">
-    <p>Dieser eingebettete Player ist aufgrund eingeschränkter Cookies nicht verfügbar.</p>
-</body>
-</html>

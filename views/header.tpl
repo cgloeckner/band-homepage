@@ -20,7 +20,7 @@
 %end
     <script>
         $(document).ready(function() {
-            on_page_load('/content/cookie-info.html', '/content/cookie-banner.html')
+            on_page_load('/cookie-info.html', '/cookie-banner.html')
         })
     </script>
 

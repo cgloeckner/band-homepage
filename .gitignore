@@ -1,5 +1,9 @@
+# ignore content that's created by the script
 www/content/*_Presskit.zip
 www/content/*_Stagerider.zip
+www/*.html
+www/robots.txt
+www/sitemap.xml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

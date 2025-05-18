@@ -1,9 +1,4 @@
-<html style="background: none">
-<head>
-    <link rel="stylesheet" type="text/css" href="/static/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/static/layout.css">
-    <link rel="stylesheet" type="text/css" href="/static/cookies.css">
-</head>
+%include('cookie/header')
 <body class="cookiebanner">
 <p>
     Wir empfehlen allen Cookies auf dieser Seite zuzustimmen. Nur technisch notwendige Cookies zu aktivieren, deaktiviert alle Player.<br>

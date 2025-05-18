@@ -86,6 +86,8 @@ def export_html(server: app.Server, homepage: app.Homepage) -> None:
     homepage.export_html(homepage.releases.template, root / 'releases.html')
     homepage.export_html(homepage.imprint.template, root / 'imprint.html')
     homepage.export_html(homepage.contact.template, root / 'contact.html')
+    homepage.export_html(homepage.cookie.banner_template, root / 'cookie-banner.html')
+    homepage.export_html(homepage.cookie.info_template, root / 'cookie-info.html')
 
     # render sitemap and robots.txt
     homepage.sitemap.save_to_xml(server.path.get_www_path() / 'sitemap.xml')

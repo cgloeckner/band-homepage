@@ -40,13 +40,17 @@ class Homepage:
         self.releases.load_from_merch(self.merch)
         self.releases.render()
 
-        # load imprint
+        # load imprint (incl. privacy)
         self.imprint = content.Imprint(server=server, cfg=cfg)
         self.imprint.render()
 
         # load contact (incl. presskit)
         self.contact = content.Contact(server=server, cfg=cfg)
         self.contact.render()
+
+        # load cookie banner stuff
+        self.cookie = content.Cookie(server=server, cfg=cfg)
+        self.cookie.render()
 
         # build sitemap.xml
         self.sitemap = seo.Sitemap()

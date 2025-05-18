@@ -18,7 +18,7 @@
 %end
     <br>
     <b>Kontakt:</b><br>
-    Telefon: {{module.phone}}<br>
+    Telefon: <a href="tel:{{module.phone}}">{{module.phone}}</a><br>
 %contact_email = module.server.email.get_contact_email()
     E-Mail: <a href="mailto:{{contact_email}}">{{contact_email}}</a><br>
 </p>

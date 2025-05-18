@@ -32,7 +32,7 @@
 
 <div class="center card">
     <p>Unser Stage Rider dient zur Orientierung von Veranstalter:innen und Livetechniker:innen in Vorbereitung auf Konzerte. Darin werden Idealbedingungen beschrieben. Abweichungen sind nach Rücksprache möglich.</p>
-    <p><a href="{{module.rider.get_url()}}">💾 {{module.rider.get_filename()}} (ca. {{module.rider.get_size()}})</a></p>
+    <p><a href="{{module.rider.get_url()}}" target="_blank">💾 {{module.rider.get_filename()}} (ca. {{module.rider.get_size()}})</a></p>
 </div>
 
 </div>

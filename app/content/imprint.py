@@ -11,4 +11,4 @@ class Imprint(Module):
         self.phone = cfg['imprint']['phone']
 
     def render(self) -> None:
-        self.template = bottle.template('imprint/index', module=self)
+        self.template = bottle.template('imprint', module=self)

@@ -167,7 +167,7 @@ p.footer > a.scroll-up:hover {
     transform: unset;
 
     border: 1px solid var(--background-color-bright);
-    text-color: var(--background-color-bright);
+    color: var(--background-color-bright);
 }
 
 @media screen and (max-width: 800px) {

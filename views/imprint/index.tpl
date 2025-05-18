@@ -23,6 +23,19 @@
     E-Mail: <a href="mailto:{{contact_email}}">{{contact_email}}</a><br>
 </p>
 
+
+<a name="privacy"></a>
+<h1>Datenschutz</h1>
+
+<p class="center card">
+    Wir verfolgen keine Besucheraktivitäten und nutzen keine Analysetools.<br>
+    Wir verlangen keine Registrierung und erheben keine Kontaktdaten.<br>
+    <br>
+    Die eingebetteten Player erfordern Cookies. Wenn Sie allen Cookies auf dieser Website zustimmen, werden diese verwendet, um die Player funktionsfähig zu machen. Wenn Sie nur essenzielle Cookies akzeptieren, werden alle eingebetteten Player deaktiviert.<br>
+    <br>
+    Technisch bedingt speichern wir Ihre Entscheidung in einem Cookie.<br>
+</p>
+
 </div>
 
 %include('footer')

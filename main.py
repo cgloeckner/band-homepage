@@ -8,25 +8,7 @@ import bottle
 import app
 
 
-def export_html(server: app.Server, homepage: app.Homepage) -> None:
-    # export html
-    root = server.path.get_www_path()
-    root.mkdir(exist_ok=True)
-
-    homepage.export_html(homepage.feed.template, root / 'index.html')
-    homepage.export_html(homepage.lineup.template, root / 'lineup.html')
-    homepage.export_html(homepage.shows.template, root / 'shows.html')
-    homepage.export_html(homepage.gallery.template, root / 'gallery.html')
-    homepage.export_html(homepage.merch.template, root / 'merch.html')
-    homepage.export_html(homepage.releases.template, root / 'releases.html')
-    homepage.export_html(homepage.imprint.template, root / 'imprint.html')
-    homepage.export_html(homepage.contact.template, root / 'contact.html')
-
-    # render sitemap and robots.txt
-    homepage.sitemap.save_to_xml(server.path.get_www_path() / 'sitemap.xml')
-    homepage.robots.save_to_txt(server.path.get_www_path() / 'robots.txt')
-
-
+"""
 def run(server: app.Server, homepage: app.Homepage) -> None:
     if server.debug:
         @server.app.get('/static/<filename>')
@@ -88,6 +70,26 @@ def run(server: app.Server, homepage: app.Homepage) -> None:
         return bottle.static_file('sitemap.xml', root=robots_root)
 
     server.run()
+"""
+
+
+def export_html(server: app.Server, homepage: app.Homepage) -> None:
+    # export html
+    root = server.path.get_www_path()
+    root.mkdir(exist_ok=True)
+
+    homepage.export_html(homepage.feed.template, root / 'index.html')
+    homepage.export_html(homepage.lineup.template, root / 'lineup.html')
+    homepage.export_html(homepage.shows.template, root / 'shows.html')
+    homepage.export_html(homepage.gallery.template, root / 'gallery.html')
+    homepage.export_html(homepage.merch.template, root / 'merch.html')
+    homepage.export_html(homepage.releases.template, root / 'releases.html')
+    homepage.export_html(homepage.imprint.template, root / 'imprint.html')
+    homepage.export_html(homepage.contact.template, root / 'contact.html')
+
+    # render sitemap and robots.txt
+    homepage.sitemap.save_to_xml(server.path.get_www_path() / 'sitemap.xml')
+    homepage.robots.save_to_txt(server.path.get_www_path() / 'robots.txt')
 
 
 def main() -> None:

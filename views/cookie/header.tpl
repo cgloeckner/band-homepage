@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html style="background: none">
 <head>
     <link rel="stylesheet" type="text/css" href="/static/normalize.css">

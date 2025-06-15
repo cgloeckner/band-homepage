@@ -1,15 +1,14 @@
 
-iframe#cookiebanner {
+#cookiebanner {
     position: fixed;
     top: 45px;
     left: 0;
     width: 100vw;
-    height: 90px;
     border: none;
     z-index: 100;
 }
 
-body.cookiebanner,
+#cookiebanner,
 body.cookieinfo {
     text-align: center;
     line-height: 2;
@@ -18,7 +17,7 @@ body.cookieinfo {
     overflow: hidden;
 }
 
-body.cookiebanner p,
+#cookiebanner p,
 body.cookieinfo p {
     text-align: unset;
     padding: unset;

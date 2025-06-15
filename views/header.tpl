@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="/static/{{sheet}}.css">
 %end
 
-    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 %for script in ['collapse', 'expire', 'main', 'embed-cookie-banner/embed-handler']:
     <script src="/static/{{script}}.js"></script>
 %end

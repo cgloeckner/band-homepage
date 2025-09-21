@@ -28,8 +28,14 @@ location="Zschochernplatz, Gera"
 description=""
 date=2025-06-21
 
-[tba2508]
+[spk25]
 title="Sparkassen Bandcontest"
 location="Hofwiesenpark Gera"
 description="mit Niederschlag, Petrol Leaf uvm."
 date=2025-08-30
+
+[privat25]
+title="Privatveranstaltung"
+location="Gera"
+description=""
+date=2025-09-20
